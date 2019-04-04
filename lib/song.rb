@@ -25,8 +25,12 @@ class Song
   end
 
   def self.find_by_name(song_name)
-  #  self.all.collect do {|x| x.name == song_name ? return x : false}
-  #  end
+    self.all.collect do |x|
+      if x.name == song_name
+        return x
+      end
+    end
+    return false
   end
 
   def save
