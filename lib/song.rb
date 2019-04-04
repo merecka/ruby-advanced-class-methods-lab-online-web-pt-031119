@@ -33,6 +33,13 @@ class Song
     return false
   end
 
+  def self.find_or_create_by_name(song_name)
+    if find_by_name(song_name)
+    else
+      create_by_name(song_name)
+    end
+  end
+
   def save
     self.class.all << self
   end
