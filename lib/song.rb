@@ -30,15 +30,15 @@ class Song
         return x
       end
     end
-    return false
+    return nil
   end
 
   def self.find_or_create_by_name(song_name)
-    if find_by_name(song_name) == false
-       create_by_name(song_name)
-    else
-       find_by_name(song_name)
-    end
+      if find_by_name(song_name) == nil
+        create_by_name(song_name)
+      else
+        find_by_name(song_name)
+      end
   end
 
   def save
