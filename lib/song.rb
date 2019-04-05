@@ -47,21 +47,24 @@ class Song
 
   def self.new_from_filename(file_name)
     artist = file_name.split("-").collect {|x| x.strip!}
-  #  binding.pry
     song_name_part = artist[1].partition(/...[.mp3]\z/)
     song = find_or_create_by_name(song_name_part[0])
     song.artist_name = artist[0]
-  #  song.name
-  #  binding.pry
-  #  song.artist_name = artist[0]
-  #  binding.pry
-#    song.artist_name
-#   binding.pry
+    song
   end
 
+  def self.create_from_filename(file_name)
+    new_from_filename(file_name)
+  end
+
+  def self.destroy_all
+    self.all.clear
+  end
 
   def save
     self.class.all << self
   end
+
+
 
 end
