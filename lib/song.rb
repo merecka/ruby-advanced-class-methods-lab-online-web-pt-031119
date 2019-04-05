@@ -46,9 +46,9 @@ class Song
   end
 
   def self.new_from_filename(file_name)
-    artist = file_name.split("-")
-    binding.pry
-    artist.collect {|x| x.strip!}
+    artist = file_name.delete(".mp3").split("-").collect {|x| x.strip!}
+#    binding.pry
+
   end
 
 
