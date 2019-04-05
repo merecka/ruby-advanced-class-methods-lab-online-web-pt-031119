@@ -49,11 +49,14 @@ class Song
     artist = file_name.split("-").collect {|x| x.strip!}
   #  binding.pry
     song_name_part = artist[1].partition(/...[.mp3]\z/)
-    find_or_create_by_name(song_name_part[0])
-
-  #  @artist_name = artist[0]
+    song = find_or_create_by_name(song_name_part[0])
+    song.artist_name = artist[0]
+  #  song.name
   #  binding.pry
-
+  #  song.artist_name = artist[0]
+  #  binding.pry
+#    song.artist_name
+#   binding.pry
   end
 
 
