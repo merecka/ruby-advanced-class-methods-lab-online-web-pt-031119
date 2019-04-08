@@ -45,7 +45,7 @@ class Song
     self.all.sort_by {|song_name| song_name.name}
   end
 
-  def self.new_from_filename(file_name)
+  def self.new_from_filename(file_name) #"Thundercat - For Love I Come.mp3"
     artist = file_name.split("-").collect {|x| x.strip!}
     song_name_part = artist[1].partition(/...[.mp3]\z/)
     song = find_or_create_by_name(song_name_part[0])
